@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Private, local facial emotion recognition using your laptop camera." />
+    <title>Emotion Lens</title>
+    <link rel="stylesheet" href="/assets/styles.css" />
+    <script src="/assets/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Emotion Lens home">
+        <span class="brand-mark">EL</span>
+        <span>Emotion Lens</span>
+      </a>
+      <div class="privacy"><span class="status-dot"></span> Local processing · no image storage</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">COMPUTER VISION PROJECT</p>
+        <h1>See facial expressions<br />become data.</h1>
+        <p class="lead">Use your laptop camera or upload a photo. The model detects faces and estimates eight expression categories in real time.</p>
+      </section>
+
+      <section class="workspace" aria-label="Emotion recognition workspace">
+        <div class="viewer">
+          <video id="video" autoplay muted playsinline></video>
+          <img id="uploaded-image" alt="Uploaded preview" />
+          <canvas id="overlay"></canvas>
+          <div id="empty-state" class="empty-state">
+            <div class="camera-symbol" aria-hidden="true"></div>
+            <h2>Camera is ready when you are</h2>
+            <p>Your frames stay on this computer and are not saved.</p>
+          </div>
+          <div class="viewer-meta">
+            <span id="mode-label">IDLE</span>
+            <span id="latency">— ms</span>
+          </div>
+        </div>
+
+        <aside class="insights">
+          <div>
+            <p class="eyebrow">LIVE ANALYSIS</p>
+            <h2 id="primary-emotion">Waiting for input</h2>
+            <p id="face-count" class="muted">No faces analyzed</p>
+          </div>
+          <div id="probabilities" class="probabilities" aria-live="polite"></div>
+          <div id="notice" class="notice">Facial expressions are uncertain signals—not medical diagnoses or proof of a person's feelings or intent.</div>
+        </aside>
+      </section>
+
+      <section class="controls" aria-label="Input controls">
+        <button id="camera-button" class="primary-button" type="button">Start laptop camera</button>
+        <label class="secondary-button" for="file-input">Upload image</label>
+        <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp" />
+        <button id="stop-button" class="text-button" type="button" disabled>Stop</button>
+        <p id="error" role="alert"></p>
+      </section>
+
+      <section class="how-it-works">
+        <p class="eyebrow">HOW IT WORKS</p>
+        <div class="steps">
+          <article><span>01</span><h3>Capture</h3><p>The browser reads the laptop webcam or a selected image.</p></article>
+          <article><span>02</span><h3>Detect</h3><p>OpenCV locates every visible face inside the frame.</p></article>
+          <article><span>03</span><h3>Classify</h3><p>ONNX Runtime scores FER+ facial-expression categories on the CPU.</p></article>
+        </div>
+      </section>
+    </main>
+    <canvas id="capture" hidden></canvas>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+models/*.onnx
+!models/.gitkeep
+tmp/
+ppt final/
+*.pdf
+*.pptx

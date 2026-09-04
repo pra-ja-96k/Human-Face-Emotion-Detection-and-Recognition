@@ -1,0 +1,15 @@
+services:
+  emotion-lens:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    environment:
+      OMP_NUM_THREADS: "1"
+      OPENBLAS_NUM_THREADS: "1"
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+
