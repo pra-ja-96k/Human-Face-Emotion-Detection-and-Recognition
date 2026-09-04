@@ -1,5 +1,8 @@
+name: human-face-emotion-detection-and-recognition
+
 services:
-  emotion-lens:
+  human-face-emotion-detection-and-recognition:
+    image: human-face-emotion-detection-and-recognition:latest
     build:
       context: .
     ports:
@@ -12,4 +15,3 @@ services:
       resources:
         limits:
           memory: 1G
-

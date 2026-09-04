@@ -20,7 +20,10 @@ def main() -> None:
     partial = TARGET.with_suffix(".download")
     print(f"Downloading FER+ ONNX model from {MODEL_URL}")
     try:
-        request = urllib.request.Request(MODEL_URL, headers={"User-Agent": "emotion-lens-builder/1.0"})
+        request = urllib.request.Request(
+            MODEL_URL,
+            headers={"User-Agent": "human-face-emotion-detection-and-recognition/1.0"},
+        )
         with urllib.request.urlopen(request, timeout=120) as response, partial.open("wb") as output:
             while chunk := response.read(1024 * 1024):
                 output.write(chunk)
@@ -39,4 +42,3 @@ if __name__ == "__main__":
     except Exception as exc:
         print(f"Model download failed: {exc}", file=sys.stderr)
         raise SystemExit(1)
-

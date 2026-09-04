@@ -1,6 +1,6 @@
-# Emotion Lens
+# Human Face Emotion Detection and Recognition
 
-Emotion Lens is a fully computer-based facial-expression recognition project. It uses the laptop webcam through the browser, detects faces with OpenCV, and performs CPU inference with the FER+ ONNX model. Raspberry Pi, GPIO, sensors, and telecommunication hardware are intentionally excluded.
+Human Face Emotion Detection and Recognition is a fully computer-based facial-expression recognition project. It uses the laptop webcam through the browser, detects faces with OpenCV, and performs CPU inference with the FER+ ONNX model. Raspberry Pi, GPIO, sensors, and telecommunication hardware are intentionally excluded.
 
 ## Features
 
@@ -76,4 +76,3 @@ compose.yaml            One-command local deployment
 ## Model notes
 
 The application uses the ONNX Model Zoo FER+ model. Its labels are neutral, happiness, surprise, sadness, anger, disgust, fear, and contempt. For a final academic evaluation, add a reproducible FER+ or FER-2013 test split and report macro-F1, per-class precision/recall, a confusion matrix, and end-to-end latency on the target laptop.
-

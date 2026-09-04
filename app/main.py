@@ -53,7 +53,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="Local Facial Emotion Recognition",
+    title="Human Face Emotion Detection and Recognition",
     version="1.0.0",
     description="Privacy-first facial-expression inference for webcam, images, and video frames.",
     lifespan=lifespan,
@@ -109,4 +109,3 @@ async def live(websocket: WebSocket) -> None:
                 await websocket.send_json({"error": str(exc), "frame_id": message.get("frame_id")})
     except WebSocketDisconnect:
         return
-
